@@ -11,6 +11,8 @@ use yii\helpers\ArrayHelper;
  * 
  * Wraps the functionality of `ActiveRecordBase::link()` and `ActiveRecordBase::unlink()`
  * to allow a list of models to be linked, and optionally unlinking existing models.
+ * 
+ * Checks are performed to ensure existing links are not duplicated.
  *
  * @property BaseActiveRecord $owner
  */
