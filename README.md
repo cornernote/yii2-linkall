@@ -49,7 +49,13 @@ class PostController extends Controller
     public function actionExample()
     {
         $post = Post::findOne(1);
-        $post->linkAll('tags', [Tag::findOne(2), Tag::findOne(3)], [], true, true);
+        $tags = [Tag::findOne(2), Tag::findOne(3)];
+        
+        $extraColumns = []; // extra columns to be saved to the many to many table
+        $unlink = true; // unlink tags not in the list
+        $delete = true; // delete unlinked tags
+        
+        $post->linkAll('tags', $tags, $extraColumns, $unlink, $delete);
     }
 }
 ```
