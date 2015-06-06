@@ -1,4 +1,9 @@
 <?php
+/**
+ * @link https://github.com/cornernote/yii2-linkall-behavior
+ * @copyright Copyright (c) 2015 Mr PHP
+ * @license https://raw.githubusercontent.com/cornernote/yii2-linkall-behavior/master/LICENSE
+ */
 
 namespace cornernote\linkall;
 
