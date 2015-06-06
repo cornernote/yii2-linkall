@@ -15,6 +15,8 @@ use yii\helpers\ArrayHelper;
  * Checks are performed to ensure existing links are not duplicated.
  *
  * @property BaseActiveRecord $owner
+ * 
+ * @author Brett O'Donnell <cornernote@gmail.com>
  */
 class LinkAllBehavior extends Behavior
 {
