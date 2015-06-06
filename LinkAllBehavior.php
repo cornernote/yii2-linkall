@@ -8,6 +8,9 @@ use yii\helpers\ArrayHelper;
 
 /**
  * LinkAllBehavior
+ * 
+ * Wraps the functionality of `ActiveRecordBase::link()` and `ActiveRecordBase::unlink()`
+ * to allow a list of models to be linked, and optionally unlinking existing models.
  *
  * @property BaseActiveRecord $owner
  */
@@ -15,11 +18,16 @@ class LinkAllBehavior extends Behavior
 {
 
     /**
-     * @param string $name
-     * @param BaseActiveRecord[] $models
-     * @param array $extraColumns
-     * @param bool $unlink
-     * @param bool $delete
+     * @param string $name the case sensitive name of the relationship.
+     * @param BaseActiveRecord[] $models the related models to be linked.
+     * @param array $extraColumns additional column values to be saved into the junction table.
+     * This parameter is only meaningful for a relationship involving a junction table
+     * (i.e., a relation set with `ActiveRelationTrait::via()` or `ActiveQuery::viaTable()`.)
+     * @param bool $unlink whether to unlink models that are not in the $models array.
+     * @param bool $delete whether to delete the models that are not in the $models array.
+     * If $unlink is false then this is ignored.
+     * If false, the model's foreign key will be set null and saved.
+     * If true, the model containing the foreign key will be deleted.
      */
     public function linkAll($name, $models, $extraColumns = [], $unlink = false, $delete = false)
     {
