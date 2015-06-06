@@ -13,7 +13,15 @@ use yii\helpers\ArrayHelper;
  */
 class LinkAllBehavior extends Behavior
 {
-    public function linkAll($name, $models, $unlink = false)
+
+    /**
+     * @param string $name
+     * @param BaseActiveRecord[] $models
+     * @param array $extraColumns
+     * @param bool $unlink
+     * @param bool $delete
+     */
+    public function linkAll($name, $models, $extraColumns, $unlink = false, $delete = false)
     {
         $modelPk = key(call_user_func([$this->owner, 'get' . $name])->link);
         $newModelPks = ArrayHelper::map($models, $modelPk, $modelPk);
@@ -24,7 +32,7 @@ class LinkAllBehavior extends Behavior
         if ($unlink) {
             foreach ($oldModels as $oldModel) {
                 if (!in_array($oldModel->{$modelPk}, $newModelPks)) {
-                    $this->owner->unlink($name, $oldModel, true);
+                    $this->owner->unlink($name, $oldModel, $delete);
                 }
             }
         }
@@ -32,8 +40,9 @@ class LinkAllBehavior extends Behavior
         // add new links
         foreach ($models as $newModel) {
             if (!in_array($newModel->{$modelPk}, $oldModelPks)) {
-                $this->owner->link($name, $newModel);
+                $this->owner->link($name, $newModel, $extraColumns);
             }
         }
     }
+
 }

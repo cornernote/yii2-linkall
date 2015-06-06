@@ -49,7 +49,7 @@ class PostController extends Controller
     public function actionExample()
     {
         $post = Post::findOne(1);
-        $post->linkAll('tags', [Tag::findOne(2), Tag::findOne(3)], true);
+        $post->linkAll('tags', [Tag::findOne(2), Tag::findOne(3)], [], true, true);
     }
 }
 ```
