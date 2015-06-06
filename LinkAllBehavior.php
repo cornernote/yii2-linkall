@@ -27,7 +27,7 @@ class LinkAllBehavior extends Behavior
 {
 
     /**
-     * Establishes the relationships between models.
+     * Manages the relationships between models.
      * 
      * @param string $name the case sensitive name of the relationship.
      * @param BaseActiveRecord[] $models the related models to be linked.
