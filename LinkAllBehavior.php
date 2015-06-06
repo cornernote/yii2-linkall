@@ -21,7 +21,7 @@ class LinkAllBehavior extends Behavior
      * @param bool $unlink
      * @param bool $delete
      */
-    public function linkAll($name, $models, $extraColumns, $unlink = false, $delete = false)
+    public function linkAll($name, $models, $extraColumns = [], $unlink = false, $delete = false)
     {
         $modelPk = key(call_user_func([$this->owner, 'get' . $name])->link);
         $newModelPks = ArrayHelper::map($models, $modelPk, $modelPk);
