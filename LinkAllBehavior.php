@@ -18,6 +18,8 @@ class LinkAllBehavior extends Behavior
 {
 
     /**
+     * Establishes the relationships between models.
+     * 
      * @param string $name the case sensitive name of the relationship.
      * @param BaseActiveRecord[] $models the related models to be linked.
      * @param array $extraColumns additional column values to be saved into the junction table.
