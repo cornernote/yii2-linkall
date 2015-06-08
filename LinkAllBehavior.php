@@ -40,7 +40,7 @@ class LinkAllBehavior extends Behavior
      * If false, the model's foreign key will be set null and saved.
      * If true, the model containing the foreign key will be deleted.
      */
-    public function linkAll($name, $models, $extraColumns = [], $unlink = false, $delete = false)
+    public function linkAll($name, $models, $extraColumns = [], $unlink = true, $delete = true)
     {
         $modelPk = key(call_user_func([$this->owner, 'get' . $name])->link);
         $newModelPks = ArrayHelper::map($models, $modelPk, $modelPk);
