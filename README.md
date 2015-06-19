@@ -4,10 +4,21 @@ Behavior to handle saving multiple many to many related records.
 
 ## Installation
 
+The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
+
+Either run
+
 ```
-composer require cornernote/yii2-linkall-behavior
+$ composer require cornernote/yii2-linkall "*"
 ```
 
+or add
+
+```
+"cornernote/yii2-linkall": "*"
+```
+
+to the `require` section of your `composer.json` file.
 
 ## Usage
 
