@@ -1,4 +1,4 @@
-# Yii2 LinkAll Behavior
+# Yii2 LinkAll
 
 Behavior to handle saving multiple many to many related records.
 

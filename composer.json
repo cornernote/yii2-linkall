@@ -1,5 +1,5 @@
 {
-    "name": "cornernote/yii2-linkall-behavior",
+    "name": "cornernote/yii2-linkall",
     "description": "Yii2 behavior to handle saving multiple many to many related records.",
     "type": "yii2-extension",
     "license": "BSD-3-Clause",
