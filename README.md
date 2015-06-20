@@ -77,11 +77,3 @@ class PostController extends Controller
     }
 }
 ```
-
-
-## License
-
-- Author: Brett O'Donnell <cornernote@gmail.com>
-- Source Code: https://github.com/cornernote/yii2-linkall-behavior
-- Copyright © 2015 Mr PHP <info@mrphp.com.au>
-- License: BSD-3-Clause https://raw.github.com/cornernote/yii2-linkall-behavior/master/LICENSE
