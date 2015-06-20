@@ -13,14 +13,14 @@ use yii\helpers\ArrayHelper;
 
 /**
  * LinkAllBehavior
- * 
+ *
  * Wraps the functionality of `ActiveRecordBase::link()` and `ActiveRecordBase::unlink()`
  * to allow a list of models to be linked, and optionally unlinking existing models.
- * 
+ *
  * Checks are performed to ensure existing links are not duplicated.
  *
  * @property BaseActiveRecord $owner
- * 
+ *
  * @author Brett O'Donnell <cornernote@gmail.com>
  */
 class LinkAllBehavior extends Behavior
@@ -28,7 +28,7 @@ class LinkAllBehavior extends Behavior
 
     /**
      * Manages the relationships between models.
-     * 
+     *
      * @param string $name the case sensitive name of the relationship.
      * @param BaseActiveRecord[] $models the related models to be linked.
      * @param array $extraColumns additional column values to be saved into the junction table.
@@ -47,16 +47,41 @@ class LinkAllBehavior extends Behavior
         $oldModels = $this->owner->{$name};
         $oldModelPks = ArrayHelper::map($oldModels, $modelPk, $modelPk);
 
-        // remove old links
         if ($unlink) {
-            foreach ($oldModels as $oldModel) {
-                if (!in_array($oldModel->{$modelPk}, $newModelPks)) {
-                    $this->owner->unlink($name, $oldModel, $delete);
-                }
+            $this->unlink($name, $modelPk, $oldModels, $newModelPks, $delete);
+        }
+        $this->link($name, $modelPk, $models, $oldModelPks, $extraColumns);
+    }
+
+    /**
+     * Remove old links
+     *
+     * @param string $name
+     * @param int|string $modelPk
+     * @param BaseActiveRecord[] $oldModels
+     * @param array $newModelPks
+     * @param bool $delete
+     */
+    protected function unlink($name, $modelPk, $oldModels, $newModelPks, $delete)
+    {
+        foreach ($oldModels as $oldModel) {
+            if (!in_array($oldModel->{$modelPk}, $newModelPks)) {
+                $this->owner->unlink($name, $oldModel, $delete);
             }
         }
+    }
 
-        // add new links
+    /**
+     * Add new links
+     *
+     * @param string $name
+     * @param int|string $modelPk
+     * @param BaseActiveRecord[] $models
+     * @param array $oldModelPks
+     * @param array $extraColumns
+     */
+    protected function link($name, $modelPk, $models, $oldModelPks, $extraColumns)
+    {
         foreach ($models as $newModel) {
             if (!in_array($newModel->{$modelPk}, $oldModelPks)) {
                 $this->owner->link($name, $newModel, $extraColumns);
