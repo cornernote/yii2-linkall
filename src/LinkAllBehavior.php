@@ -1,8 +1,9 @@
 <?php
 /**
- * @link https://github.com/cornernote/yii2-linkall-behavior
+ * @author Brett O'Donnell <cornernote@gmail.com>
  * @copyright Copyright (c) 2015 Mr PHP
- * @license https://raw.githubusercontent.com/cornernote/yii2-linkall-behavior/master/LICENSE
+ * @link https://github.com/cornernote/yii2-linkall
+ * @license BSD-3-Clause https://raw.github.com/cornernote/yii2-linkall/master/LICENSE.md
  */
 
 namespace cornernote\linkall;
@@ -20,8 +21,6 @@ use yii\helpers\ArrayHelper;
  * Checks are performed to ensure existing links are not duplicated.
  *
  * @property BaseActiveRecord $owner
- *
- * @author Brett O'Donnell <cornernote@gmail.com>
  */
 class LinkAllBehavior extends Behavior
 {
