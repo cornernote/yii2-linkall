@@ -4,7 +4,9 @@
 .project
 .buildpath
 
-# ignore vendor
+# ignore test data files and dirs
+coverage.clover
+build/
 vendor/
 
 # ignore temporary files

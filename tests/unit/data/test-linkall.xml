@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <post id="1" title="Post title 1" body="Post body 1"/>
+    <post id="2" title="Post title 2" body="Post body 2"/>
+    <post id="3" title="Post title 3" body="Post body 3"/>
+    <tag id="1" name="tag 1"/>
+    <tag id="2" name="tag 2"/>
+    <tag id="3" name="tag 3"/>
+    <tag id="4" name="tag 4"/>
+    <tag id="5" name="tag 5"/>
+    <tag id="6" name="tag 6"/>
+    <post_to_tag post_id="1" tag_id="2"/>
+    <post_to_tag post_id="1" tag_id="3"/>
+</dataset>
