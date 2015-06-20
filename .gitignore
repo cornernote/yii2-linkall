@@ -4,5 +4,8 @@
 .project
 .buildpath
 
+# ignore vendor
+vendor/
+
 # ignore temporary files
 *~
