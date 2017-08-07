@@ -83,7 +83,7 @@ class LinkAllBehavior extends Behavior
     {
         foreach ($models as $newModel) {
             if (!in_array($newModel->{$modelPk}, $oldModelPks)) {
-                $this->owner->link($name, $newModel, $extraColumns);
+                $this->owner->link($name, $newModel, !empty($extraColumns[$key]) ? $extraColumns[$key] : []);
             }
         }
     }
