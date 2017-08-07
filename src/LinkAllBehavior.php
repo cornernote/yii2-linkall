@@ -81,9 +81,9 @@ class LinkAllBehavior extends Behavior
      */
     protected function link($name, $modelPk, $models, $oldModelPks, $extraColumns)
     {
-        foreach ($models as $newModel) {
+        foreach ($models as $k => $newModel) {
             if (!in_array($newModel->{$modelPk}, $oldModelPks)) {
-                $this->owner->link($name, $newModel, !empty($extraColumns[$key]) ? $extraColumns[$key] : []);
+                $this->owner->link($name, $newModel, !empty($extraColumns[$k]) ? $extraColumns[$k] : []);
             }
         }
     }
